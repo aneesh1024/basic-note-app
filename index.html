@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes Keeper</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="input_container">
+        <div class="input">
+          <input type="text" name="title" id="title" placeholder="Title" />
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            placeholder="Content"
+          ></textarea>
+        </div>
+      </div>
+      <div class="notes_container"></div>
+      <div class="note-view">
+        <div>
+          <p>fasfdsaasf</p>
+          <p></p>
+        </div>
+        <div class="close-view">
+          <svg
+            width="20"
+            height="20"
+            fill="#444444"
+            stroke="#ffffff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+            <path d="m15 9-6 6"></path>
+            <path d="m9 9 6 6"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
