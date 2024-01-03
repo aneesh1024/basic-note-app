@@ -12,6 +12,7 @@ let maxId = Number(localStorage.getItem("maxId"));
 let noteViewData = {
   title: "",
   content: "",
+  date: "",
 };
 
 titleInput.addEventListener("focusin", () => {
@@ -27,6 +28,9 @@ document.addEventListener("click", (e) => {
         id: Number(maxId) + 1,
         title: title,
         content: content,
+        date: new Date().toLocaleDateString("en-us", {
+          dateStyle: "medium",
+        }),
       };
       addNote(noteObject);
       titleInput.value = "";
@@ -67,7 +71,10 @@ const getNotes = () => {
         return `
             <div class="note">
                 <div class="note-section">
-                <div>${note.title}</div>
+                <div>
+                <p>${note.title}</p>
+                <small>${note.date}</small>
+                </div>
                 <p>${
                   note.content.length > 80
                     ? note.content.slice(0, 80) + "..."
@@ -94,7 +101,8 @@ const getNotes = () => {
   });
   notes.forEach((note) => {
     note.addEventListener("click", (e) => {
-      const title = note.children[0].innerHTML;
+      const title = note.children[0].children[0].innerHTML;
+      const date = note.children[0].children[1].innerHTML;
       const content = note.children[1].innerHTML;
 
       closeView.addEventListener("click", () => {
@@ -103,6 +111,7 @@ const getNotes = () => {
 
       noteView.children[0].innerHTML = `
             <p>${title}</p>
+            <small>${date}</small>
             <p>${content}</p>`;
       noteView.classList.remove("hidden");
     });
